@@ -147,3 +147,6 @@ wiki/**/$__config_Navigation_openLinkFromOutsideRiver.tid
 # Playwright outputs
 playwright-report/
 test-results/
+
+# Notes Claude locales (perso, non versionnées)
+CLAUDE.local.md

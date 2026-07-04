@@ -4,8 +4,5 @@
   "themes": [
     "tiddlywiki/vanilla"
   ],
-  "languages": [
-    "zh-Hans"
-  ],
   "build": {}
 }

@@ -1,0 +1,50 @@
+diff --git a/dist/index.js b/dist/index.js
+index 9f6070b7d0cfadc759621f6a622569d6e3f87e63..f83958d6c2a01baf06ae3f0210bcdfd225c931b2 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -326436,20 +326436,6 @@ var rebuild = (_0, _1, ..._2) => __async(void 0, [_0, _1, ..._2], function* ($tw
+   if (!import_fs4.default.existsSync(baseDir)) {
+     return [];
+   }
+-  const tailwindConfigPath = import_path4.default.resolve(".", "tailwind.config.js");
+-  if (!import_fs4.default.existsSync(tailwindConfigPath)) {
+-    import_fs4.default.writeFileSync(
+-      tailwindConfigPath,
+-      [
+-        "module.exports = {",
+-        "  content: ['./src/**/*.{mjs,cjs,js,ts,jsx,tsx}'],",
+-        "  theme: { extend: {} },",
+-        "  plugins: [],",
+-        "};"
+-      ].join("\n"),
+-      "utf-8"
+-    );
+-  }
+   console.log(import_chalk.default.green.bold("Compiling..."));
+   const bar = new import_cli_progress.default.SingleBar(
+     {
+diff --git a/dist/js/packup.js b/dist/js/packup.js
+index 7bc84dfb09381e63e97603a1fc2286c768e9475d..4df5f666f3657f3609306171ffebd889aa302815 100644
+--- a/dist/js/packup.js
++++ b/dist/js/packup.js
+@@ -91,20 +91,6 @@ const rebuild = async ($tw, pluginsDir, updatePaths = [], devMode = true, exclud
+   if (!fs.existsSync(baseDir)) {
+     return [];
+   }
+-  const tailwindConfigPath = path.resolve(".", "tailwind.config.js");
+-  if (!fs.existsSync(tailwindConfigPath)) {
+-    fs.writeFileSync(
+-      tailwindConfigPath,
+-      [
+-        "module.exports = {",
+-        "  content: ['./src/**/*.{mjs,cjs,js,ts,jsx,tsx}'],",
+-        "  theme: { extend: {} },",
+-        "  plugins: [],",
+-        "};"
+-      ].join("\n"),
+-      "utf-8"
+-    );
+-  }
+   console.log(chalk.green.bold("Compiling..."));
+   const bar = new cliProgress.SingleBar(
+     {

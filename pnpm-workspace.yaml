@@ -3,11 +3,17 @@ packages:
 
 allowBuilds:
   '@parcel/watcher': true
-  core-js: true
   dprint: true
   esbuild: true
   svelte-preprocess: true
   unrs-resolver: true
 
-minimumReleaseAgeExclude:
-  - tiddlywiki-plugin-dev@0.5.12
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - dprint
+  - esbuild
+  - svelte-preprocess
+  - unrs-resolver
+
+patchedDependencies:
+  tiddlywiki-plugin-dev@0.5.12: patches/tiddlywiki-plugin-dev@0.5.12.patch

@@ -1,8 +1,10 @@
 title: $:/plugins/your-name/plugin-name/config
 tags: $:/tags/ControlPanel/SettingsTab
-caption: <<lingo Name $:/plugins/your-name/plugin-name/language/>>
+caption: {{$:/plugins/your-name/plugin-name/language/en-GB/Name}}
 
-\procedure lingo-base() $:/plugins/your-name/plugin-name/language/
+\define lingo-base()
+$:/plugins/your-name/plugin-name/language/en-GB/
+\end
 
 <<lingo ConfigDescription>>
 

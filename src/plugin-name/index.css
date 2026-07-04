@@ -1,3 +1,12 @@
+/* Tailwind désactivé dans ce template. Pour le réactiver, décommenter les deux imports
+   sélectifs ci-dessous (NE PAS utiliser `@import "tailwindcss";` seul : son layer(base)
+   applique un reset global qui casse le thème du wiki). */
+/* @import "tailwindcss/theme.css" layer(theme); */
+/* @import "tailwindcss/utilities.css" layer(utilities); */
+
+/* Alternative Sass/SCSS : renommer ce fichier en `index.scss`, adapter l'import dans
+   index.ts (`import './index.scss';`) — `sass` est déjà en devDependencies. */
+
 .tc-example-widget {
     background: cyan;
 }
