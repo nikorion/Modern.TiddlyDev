@@ -2,23 +2,23 @@ import { widget as Widget } from '$:/core/modules/widgets/widget.js';
 import { IChangedTiddlers } from 'tiddlywiki';
 import './index.css';
 
-// --- Exemple : composant Svelte couplé à SCSS (décommenter pour l'activer) ---
-// Prérequis déjà en devDependencies : `svelte`, `sass`, `svelte-preprocess`. Le pipeline
-// esbuild-svelte + svelte-preprocess du moteur compile `Example.svelte` (voir ce fichier :
-// `<script lang="ts">` + `<style lang="scss">`, transpilé par `sass`).
+// --- Example: Svelte component paired with SCSS (uncomment to enable) ---
+// Prerequisites already in devDependencies: `svelte`, `sass`, `svelte-preprocess`. The engine's
+// esbuild-svelte + svelte-preprocess pipeline compiles `Example.svelte` (see that file:
+// `<script lang="ts">` + `<style lang="scss">`, transpiled by `sass`).
 //
 // import { mount, unmount } from 'svelte';
 // import Example from './Example.svelte';
 //
-// Puis, dans render(), à la place du bouton ci-dessous :
+// Then, in render(), instead of the button below:
 //   const component = mount(Example, {
 //     target: parent as Element,
 //     anchor: nextSibling,
 //     props: { label: 'Hello from Svelte' },
 //   });
-//   // Svelte 5 → mount()/unmount() (l'API classe `new Example({ target })` de Svelte ≤4 est
-//   // legacy). Conserver `component` et appeler unmount(component) dans destroy()/removeChildDomNodes()
-//   // pour éviter les fuites au retrait du widget.
+//   // Svelte 5 → mount()/unmount() (the Svelte ≤4 class API `new Example({ target })` is
+//   // legacy). Keep `component` and call unmount(component) in destroy()/removeChildDomNodes()
+//   // to avoid leaks when the widget is removed.
 
 class ExampleWidget extends Widget {
   private clickCount = 0;
@@ -36,8 +36,8 @@ class ExampleWidget extends Widget {
     this.computeAttributes();
     this.execute();
     const containerElement = $tw.utils.domMaker('button', {
-      // Tailwind désactivé : les utilitaires démo (`p-2 rounded-md bg-cyan-600 text-white
-      // hover:bg-cyan-700`) ont été retirés. Style via .tc-example-widget dans index.css.
+      // Tailwind disabled: the demo utilities (`p-2 rounded-md bg-cyan-600 text-white
+      // hover:bg-cyan-700`) have been removed. Styled via .tc-example-widget in index.css.
       class: 'tc-example-widget',
       attributes: {
         type: 'button',

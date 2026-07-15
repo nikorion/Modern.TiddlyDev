@@ -1,9 +1,9 @@
-# TiddlyDev — contexte projet pour Claude
+# Modern.TiddlyDev — contexte projet pour Claude
 
 ## Ce que c'est
 Template de plugin TiddlyWiki en **TypeScript** — copie locale du template officiel [Modern.TiddlyDev](https://tiddly-gittly.github.io/Modern.TiddlyDev/) (`tiddly-gittly/Modern.TiddlyDev`), basé sur le moteur/CLI `tiddlywiki-plugin-dev`. Plugin de démo : widget `<$RandomNumber>` (compteur de clics). But : point de départ pour plugins TW5 TypeScript avec outillage moderne (Playwright, ESLint, Husky).
 
-**Ne vient PAS d'oeyoews / `create-neotw-app`** (l'ancien nom `tiddlywiki-starter-kit` le laissait croire à tort) — contenu vérifié identique fichier par fichier au master `tiddly-gittly/Modern.TiddlyDev` (2026-07), d'où les renommages successifs `tiddlywiki-starter-kit` → `Modern-TiddlyDev-Template` → `TiddlyDev` (2026-07-04). Généalogie ci-dessous.
+**Ne vient PAS d'oeyoews / `create-neotw-app`** (l'ancien nom `tiddlywiki-starter-kit` le laissait croire à tort) — contenu vérifié identique fichier par fichier au master `tiddly-gittly/Modern.TiddlyDev` (2026-07), d'où les renommages successifs `tiddlywiki-starter-kit` → `Modern-TiddlyDev-Template` → `TiddlyDev` (2026-07-04) → `Modern.TiddlyDev` (2026-07-15). Généalogie ci-dessous.
 
 Plugin courant : `$:/plugins/your-name/plugin-name` — à remplacer lors de la création d'un vrai plugin.
 
@@ -27,7 +27,7 @@ Rationale complète dans `guides/ecarts-upstream.md`. Résumé :
 | 4 | pnpm + deps à jour | `pnpm-lock.yaml` ; `allowBuilds:` (pas `onlyBuiltDependencies:`) dans `pnpm-workspace.yaml`, sinon `ERR_PNPM_IGNORED_BUILDS` |
 | 5 | `tree.tid` supprimé | macro core `<<tree>>` jugée superflue |
 | 6 | Plugins bundlés retirés | `$:/plugins/Modern.TiddlyDev/doc` (readme/tutoriels amont) + `Gk0Wk/CPL-Repo` (navigateur bibliothèque plugins) |
-| 7 | Patch `lingo` retiré | `wiki/tiddlers/patches/lingo.tid` supprimé ; démo (`config.tid`, `readme.tid`, `language/en-GB/Readme.tid`) rebasculée sur le `lingo` mono-argument du core, `lingo-base` pointé directement sur `…/language/en-GB/` |
+| 7 | Patch `lingo` retiré | `wiki/tiddlers/patches/lingo.tid` supprimé ; démo (`settings.tid`, `readme.tid`, `language/en-GB/Readme.tid`) rebasculée sur le `lingo` mono-argument du core, `lingo-base` pointé directement sur `…/language/en-GB/` |
 
 Hérités du gabarit, à conserver :
 - `pnpm run build` produit `dist/$__plugins_….json` : tiddler JSON **autoporteur** (`title`, `plugin-type`, `type`, `version` inclus) — importable par glisser-déposer dans un wiki navigateur, ou copiable tel quel dans `tiddlers/` d'un wiki Node sans `.meta` (contrairement au format brut `{"tiddlers":…}` des plugins classiques, ex. l'ancien CPL-Repo — écart 7).
@@ -56,9 +56,9 @@ src/
     index.css                    ← styles du widget (importé dans index.ts) ; imports Tailwind commentés (désactivé)
     Example.svelte               ← composant Svelte+SCSS d'exemple (non câblé : pas de .meta, import commenté dans index.ts)
     plugin.info                  ← métadonnées du plugin (titre, auteur, version…)
-    configs/
-      config.tid                 ← onglet ControlPanel avec cases à cocher / selects / inputs
-      configs.multids            ← valeurs par défaut des configs (tiddlers $:/plugins/…/configs/*)
+    settings/
+      settings.tid               ← onglet ControlPanel avec cases à cocher / selects / inputs
+      settings.multids           ← valeurs par défaut des configs (tiddlers $:/plugins/…/settings/*)
     language/
       en-GB/
         Readme.tid               ← readme anglais embarqué dans TW
@@ -132,9 +132,9 @@ Configs/XXX/Caption: Paramètre X
 ```
 Les clés sont référencées via le `lingo` mono-argument du core : définir `\define lingo-base()` = `$:/plugins/your-name/plugin-name/language/en-GB/` en tête de tiddler, puis `<<lingo Name>>`. Hors portée du corps (ex. champ `caption`), transclure directement : `{{$:/plugins/your-name/plugin-name/language/en-GB/Name}}`. (Le core est mono-langue ici — anglais uniquement, écart 1 ; l'ancien patch `lingo` à repli multi-langue a été retiré, écart 7.)
 
-## Config tiddlers (configs/)
-- `configs.multids` crée les tiddlers `$:/plugins/…/configs/xxx`, `…/yyy`, `…/zzz` avec leurs valeurs par défaut.
-- `config.tid` affiche un onglet dans le ControlPanel TW (tag `$:/tags/ControlPanel/SettingsTab`).
+## Config tiddlers (settings/)
+- `settings.multids` crée les tiddlers `$:/plugins/…/settings/xxx`, `…/yyy`, `…/zzz` avec leurs valeurs par défaut.
+- `settings.tid` affiche un onglet dans le ControlPanel TW (tag `$:/tags/ControlPanel/SettingsTab`).
 - Les widgets TW natifs `<$checkbox>`, `<$select>`, `<$edit-text>` lisent/écrivent directement les tiddlers de config.
 
 ## Tests Playwright

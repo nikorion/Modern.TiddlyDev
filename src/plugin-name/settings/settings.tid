@@ -1,4 +1,4 @@
-title: $:/plugins/your-name/plugin-name/config
+title: $:/plugins/your-name/plugin-name/settings
 tags: $:/tags/ControlPanel/SettingsTab
 caption: {{$:/plugins/your-name/plugin-name/language/en-GB/Name}}
 
@@ -13,9 +13,9 @@ $:/plugins/your-name/plugin-name/language/en-GB/
 !! <<lingo Configs/PluginConfigs/Caption>>
 
 ;<<lingo Configs/XXX/Caption>>
-:<$checkbox tiddler="$:/plugins/your-name/plugin-name/configs/xxx" field="text" checked="yes" unchecked=""> <<lingo Configs/XXX/Description>></$checkbox>
+:<$checkbox tiddler="$:/plugins/your-name/plugin-name/settings/xxx" field="text" checked="yes" unchecked=""> <<lingo Configs/XXX/Description>></$checkbox>
 ;<<lingo Configs/YYY/Caption>>
-:<$select tiddler='$:/plugins/your-name/plugin-name/configs/yyy'>
+:<$select tiddler='$:/plugins/your-name/plugin-name/settings/yyy'>
 	<option value='0'>Sunday</option>
 	<option value='1'>Monday</option>
 	<option value='2'>Tuesday</option>
@@ -25,4 +25,4 @@ $:/plugins/your-name/plugin-name/language/en-GB/
 	<option value='6'>Saturday</option>
 </$select>
 ;<<lingo Configs/ZZZ/Caption>>
-:<$edit-text tiddler="$:/plugins/your-name/plugin-name/configs/zzz" tabindex=-1 focus=false cancelPopups="yes" fileDrop=no tag="input" />
+:<$edit-text tiddler="$:/plugins/your-name/plugin-name/settings/zzz" tabindex=-1 focus=false cancelPopups="yes" fileDrop=no tag="input" />

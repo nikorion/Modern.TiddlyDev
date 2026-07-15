@@ -1,11 +1,11 @@
 <!--
-  Exemple de composant Svelte couplé à SCSS pour ce template.
+  Example Svelte component paired with SCSS for this template.
 
-  Non câblé par défaut : aucun `.meta`, et son import dans index.ts est commenté — le moteur
-  ne le bundle donc pas tant qu'on ne l'active pas (voir le bloc commenté dans index.ts).
+  Not wired in by default: no `.meta`, and its import in index.ts is commented out — so
+  the engine won't bundle it until it's enabled (see the commented block in index.ts).
 
-  Démontre : Svelte 5 (runes $props/$state), `<script lang="ts">` et `<style lang="scss">`
-  (variables, nesting, module `sass:color`). Peers requis (déjà installés) : svelte,
+  Demonstrates: Svelte 5 (runes $props/$state), `<script lang="ts">` and `<style lang="scss">`
+  (variables, nesting, `sass:color` module). Required peers (already installed): svelte,
   svelte-preprocess, sass, typescript.
 -->
 <script lang="ts">
