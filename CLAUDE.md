@@ -37,7 +37,7 @@ Rupture vs plugins JS maison (TW-Math & co) : sources TypeScript non chargeables
 
 - À la place : après `pnpm build`, copier le JSON autoporteur de `dist/` directement dans `tiddlers/` des wikis cibles (pas de `.meta`) — automatisable en post-build.
 - Attention : c'est un artefact de build déployé, pas les sources — TS modifié sans rebuild = wikis périmés.
-- À trancher (suggestion en attente) : garder l'ancien template maison (JS IIFE, symlink direct via `TIDDLYWIKI_PLUGIN_PATH`) pour les plugins légers plutôt que tout migrer en TS ?
+- **Tranché (2026-10-09) : JS par défaut.** Tous les plugins nikorion restent en JS natif sur l'outillage partagé `../tw-dev/` (`pnpm dev` HMR, CI `site.yml`, `plugins.json`) — décrit dans `../CLAUDE.md` § Workflow de dev commun. Ce template ne sert plus que si un plugin exige TS/bundling (dépendance npm à empaqueter, React/Svelte). **Incompatible avec `tw-dev`** : `pnpm dev` = `tiddlywiki-plugin-dev dev` (port 8080 fixe, pas de résolution des plugins frères, pas de CI partagée) — un plugin TS se brancherait sur `tw-dev` seulement via un build préalable, non fait.
 
 ## Guides détaillés (à lire à la demande — non chargés auto)
 - `guides/tuto-template.md` — tutoriel d'utilisation (adaptation FR du README/tutoriels amont) : prérequis, install, workflow, création de widget, styles, i18n, config, tests, build & publication.
